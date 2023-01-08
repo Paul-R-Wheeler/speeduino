@@ -6,7 +6,7 @@
 #else
 #define CAN_CRC_SIZE 0
 #endif
-#define NEW_CAN_PACKET_SIZE (122 + CAN_CRC_SIZE)
+#define NEW_CAN_PACKET_SIZE (123 + CAN_CRC_SIZE)
 #define CAN_PACKET_SIZE   75
 
 #if ( defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) )
@@ -27,9 +27,9 @@
   extern HardwareSerial &CANSerial;
 #endif
 
-void secondserial_Command();//This is the heart of the Command Line Interpreter.  All that needed to be done was to make it human readable.
+void secondserial_Command(void);//This is the heart of the Command Line Interpreter.  All that needed to be done was to make it human readable.
 void sendcanValues(uint16_t offset, uint16_t packetLength, byte cmd, byte portNum);
-void can_Command();
+void can_Command(void);
 void sendCancommand(uint8_t cmdtype , uint16_t canadddress, uint8_t candata1, uint8_t candata2, uint16_t sourcecanAddress);
 void obd_response(uint8_t therequestedPID , uint8_t therequestedPIDlow, uint8_t therequestedPIDhigh);
 
